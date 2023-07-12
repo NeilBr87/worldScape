@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+#navigationBox {
+    animation: fadeIn 1s ease-in-out;
+
+    background-color: #faebd7; /* Set the background color to a light beige */
+    background-image: url('https://www.publicdomainpictures.net/pictures/490000/nahled/pergament-papier-hintergrund-textur-1675507787Irq.jpg'); /* Replace 'parchment-texture.jpg' with the actual path to your parchment texture image */
+    background-repeat: repeat; /* Repeat the texture vertically and horizontally */
+    font-family: 'MedievalSharp', cursive !important;
+
+}
+
+
+.travelButtons {
+      background-color: #faebd7; /* Set the background color to a light beige */
+  background-image: url('https://www.publicdomainpictures.net/pictures/470000/nahled/vintage-rahmen-altes-pergament.jpg');
+  background-repeat: no-repeat; 
+  background-size: 100% 100%;
+  font-weight: bold;
+  font-family: 'MedievalSharp', cursive !important;
+}
+
+
+@keyframes fadeIn {
+    0% {
+      filter : blur(10px);
+      opacity: 0;
+    }
+    100% {
+      filter : blur(0px);
+      opacity: 1;
+    }
+  }
