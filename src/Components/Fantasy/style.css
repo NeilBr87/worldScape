@@ -1,0 +1,58 @@
+.App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  #navigatorView {
+    
+      position: fixed; /* Sit on top of the page content */
+      top: 10;
+      left: 10;
+      right: 10;
+      bottom: 10;
+      background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+      z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+      cursor: pointer; /* Add a pointer on hover */
+      background-color: white;
+  }
+  
+  #compassBox {
+    background-color: #faebd7; /* Set the background color to a light beige */
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwztcOoZsw00-QGjbqFBfn8uwP1Wy_9XfqOA&usqp=CAU'); /* Replace 'parchment-texture.jpg' with the actual path to your parchment texture image */
+    background-repeat: repeat; /* Repeat the texture vertically and horizontally */
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

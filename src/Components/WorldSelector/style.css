@@ -1,0 +1,22 @@
+
+#fantasyCard {
+font-weight: bold;
+color:white;
+font-family: 'MedievalSharp', cursive !important;
+}
+
+#sciFiCard{
+    font-weight: bold;
+    color:white;
+    font-family: 'Orbitron', sans-serif !important;
+}
+
+#historyCard{
+    font-weight: bold;
+    color:white;
+    font-family: 'Playfair Display', serif;
+}
+
+.primaryText{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}

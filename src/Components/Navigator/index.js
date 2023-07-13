@@ -25,7 +25,7 @@ export default function Navigator(props) {
     const [paragraph1, setParagraph1] = useState('Choose your destination below');
     const [paragraph2, setParagraph2] = useState('The entirety of the world of Aether is at your fingertips');
 
-    const [play, { stop: stopPlay, volume }] = useSound(Wind, { volume: 0.5, loop: true });
+    const [play, { stop: stopPlay, volume }] = useSound(Wind, { volume: 0.8, loop: true });
     const [playVillage, { stop: stopPlayVillage, volume: volumeVillage }] = useSound(villageSound, { volume: 0.5, loop: true });
 
 
