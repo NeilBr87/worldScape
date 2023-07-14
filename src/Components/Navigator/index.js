@@ -9,7 +9,10 @@ import Totenstadt from '../Totenstadt';
 import Dhahabiun from '../Dhahabiun';
 import useSound from 'use-sound';
 import Wind from './Wind.mp3';
-import villageSound from './village.mp3';
+import villageSound from './Village.mp3';
+import Darkcity from './Darkcity.mp3';
+import Desertcity from './Desertcity.mp3';
+import Desert from './Desert.mp3';
 
 import './style.css';
 
@@ -25,12 +28,22 @@ export default function Navigator(props) {
     const [paragraph1, setParagraph1] = useState('Choose your destination below');
     const [paragraph2, setParagraph2] = useState('The entirety of the world of Aether is at your fingertips');
 
-    const [play, { stop: stopPlay, volume }] = useSound(Wind, { volume: 0.8, loop: true });
-    const [playVillage, { stop: stopPlayVillage, volume: volumeVillage }] = useSound(villageSound, { volume: 0.5, loop: true });
+    const [play, { stop: stopPlay, volume }] = useSound(Wind, { volume: 1, loop: true });
+    const [playVillage, { stop: stopPlayVillage, volume: volumeVillage }] = useSound(villageSound, { volume: 2.2, loop: true });
+    const [playToten, {stop: stopPlayToten, volume: volumeToten }] = useSound(Darkcity, { volume: 0.12, loop: true });
+    const [playMeridiem, {stop: stopPlayMeridiem, volume: volumeMeridiem }] = useSound(Desertcity, { volume: 0.4, loop: true });
+    const [playDesert, {stop: stopPlayDesert, volume: volumeDesert }] = useSound(Desert, { volume: 1.1, loop: true });
 
+    function stopAll() {
+        stopPlay();
+        stopPlayVillage();
+        stopPlayToten();
+        stopPlayMeridiem();
+        stopPlayDesert();
+    }
 
     function handleAmabilia() {
-        stopPlay(); // Stop the currently playing sound
+        stopAll();
         playVillage();
         setVillage(true);
         setFjell(false);
@@ -45,7 +58,7 @@ export default function Navigator(props) {
     }
 
     function handleFjell() {
-        stopPlayVillage() // Stop the village sound
+        stopAll();
         play(Wind)
         setVillage(false);
         setFjell(true);
@@ -60,6 +73,8 @@ export default function Navigator(props) {
     }
 
     function handleCalidum() {
+        stopAll();
+        playDesert();
         setVillage(false);
         setFjell(false);
         setCalidum(true);
@@ -73,6 +88,8 @@ export default function Navigator(props) {
     }
 
     function handleMeridiem() {
+        stopAll();
+        playMeridiem();
         setVillage(false);
         setFjell(false);
         setCalidum(false);
@@ -99,6 +116,8 @@ export default function Navigator(props) {
     }
 
     function handleTotenstadt() {
+        stopAll();
+        playToten();
         setVillage(false);
         setFjell(false);
         setCalidum(false);
