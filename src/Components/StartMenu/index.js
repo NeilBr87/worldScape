@@ -2,6 +2,8 @@ import React from 'react';
 import {useState} from 'react';
 import WorldSelector from '../WorldSelector';
 import Credits from '../Credits';
+import Guide from '../Guide';
+import './style.css';
 
 export default function StartMenu() {
     const [showMenu, setShowMenu] = useState(true);
@@ -15,6 +17,11 @@ export default function StartMenu() {
         setStart(true);
     }
 
+    function handleGuide() {
+        setShowMenu(false);
+        setGuide(true);
+    }
+
     function handleCredits() {
         setShowMenu(false);
         setCredits(true);
@@ -23,18 +30,21 @@ export default function StartMenu() {
     return (
         <div>
             {showMenu &&
-            <div style={{color: 'white'}}>
-                <h1 className="primaryText">worldScape</h1>
-                <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '30px', marginTop: '2%'}}>
-                <h1 onClick={handleStart} className="primaryText" style={{fontSize: '42px', border: '8px ridge red', width: '250px', padding: '10px', borderRadius: '10px', backgroundColor: 'rgb(0, 0, 0)', color: 'red'}}>Start</h1>
-                <h1 className="primaryText" style={{fontSize: '42px', border: '8px ridge white', width: '250px', padding: '10px', borderRadius: '10px', backgroundColor: 'rgb(255, 0, 0)', color: 'white'}}>Guide</h1>
-                <h1 className="primaryText" style={{fontSize: '42px', border: '8px ridge white', width: '250px', padding: '10px', borderRadius: '10px', backgroundColor: 'rgb(0, 0, 0)', color: 'white'}}>About</h1>
-                <h1 onClick={handleCredits} className="primaryText" style={{fontSize: '42px', border: '8px ridge red', width: '250px', padding: '10px', borderRadius: '10px', backgroundColor: 'rgb(0, 0, 255)', color: 'red'}}>Credits</h1>
-                </div>
+            <div className="backgroundPage">
+            <div style={{position: 'absolute', top: '50%', left: '50%', transform: "translate(-50%, -50%)", color: 'black', backgroundColor: 'rgba(255, 255, 255, 0.82)', height: '80%', width: '80%', borderRadius: '10px'}}>
+                <h1 style={{fontSize: '60px', marginTop: '5%', color: 'white', textShadow: '-3px -3px 0 black, 3px -3px 0 black, -3px 3px 0 black, 3px 3px 0 black'}}>worldScape</h1>
+                    <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '30px', marginTop: '2%'}}>
+                        <h1 style={{cursor: 'pointer'}} onClick={handleStart} >Start</h1>
+                        <h1 style={{cursor: 'pointer'}} onClick={handleGuide} >Guide</h1>
+                        <h1 style={{cursor: 'pointer'}} >About</h1>
+                        <h1 style={{cursor: 'pointer'}} onClick={handleCredits}>Credits</h1>
+                    </div>
+            </div>
             </div>}
 
             <div>
                 {start ? <WorldSelector /> : null}
+                {guide ? <Guide /> : null}
                 {credits ? <Credits /> : null}
             </div>
 

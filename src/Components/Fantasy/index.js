@@ -19,8 +19,11 @@ export default function Fantasy() {
 
   return (
     <div className="App">
-      <div id="compassBox" style={{width: '60px', height: '60px', margin: '0 auto', marginTop: '5px', marginBottom: '5px', borderRadius: '10px'}}>
-      <img src="https://www.publicdomainpictures.net/pictures/440000/nahled/kompass-navigation-vintage-clipart.png" alt="compass" style={{width: '60px'}} onClick={handleNavigation}></img>
+      <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+        <a href="/" style={{color: 'white', textDecoration: 'none', fontSize: '40px', position: 'fixed', left: '40%'}}>◀</a>
+        <div id="compassBox" style={{width: '60px', height: '60px', margin: '0 auto', marginTop: '5px', marginBottom: '5px', borderRadius: '10px'}}>
+          <img src="https://www.publicdomainpictures.net/pictures/440000/nahled/kompass-navigation-vintage-clipart.png" alt="compass" style={{width: '60px'}} onClick={handleNavigation}></img>
+        </div>
       </div>
         {showGuide &&
             <div id="navigationBox" style={{position: 'fixed', left: '34.5%', top: '25%', zIndex: '2', width: '28%', padding: '20px', borderRadius: '10px', boxShadow: '1px 5px 5px rgba(0.5, 1.5, 0.7, 0.7)'}}>

@@ -13,6 +13,8 @@ import villageSound from './Village.mp3';
 import Darkcity from './Darkcity.mp3';
 import Desertcity from './Desertcity.mp3';
 import Desert from './Desert.mp3';
+import Blizzard from './Blizzard.mp3';
+import Steppe from './Steppe.mp3';
 
 import './style.css';
 
@@ -28,11 +30,13 @@ export default function Navigator(props) {
     const [paragraph1, setParagraph1] = useState('Choose your destination below');
     const [paragraph2, setParagraph2] = useState('The entirety of the world of Aether is at your fingertips');
 
-    const [play, { stop: stopPlay, volume }] = useSound(Wind, { volume: 1, loop: true });
-    const [playVillage, { stop: stopPlayVillage, volume: volumeVillage }] = useSound(villageSound, { volume: 2.2, loop: true });
-    const [playToten, {stop: stopPlayToten, volume: volumeToten }] = useSound(Darkcity, { volume: 0.12, loop: true });
-    const [playMeridiem, {stop: stopPlayMeridiem, volume: volumeMeridiem }] = useSound(Desertcity, { volume: 0.4, loop: true });
-    const [playDesert, {stop: stopPlayDesert, volume: volumeDesert }] = useSound(Desert, { volume: 1.1, loop: true });
+    const [play, { stop: stopPlay, volume }] = useSound(Wind, { volume: 1, loop: false });
+    const [playVillage, { stop: stopPlayVillage, volume: volumeVillage }] = useSound(villageSound, { volume: 2.2, loop: false });
+    const [playToten, {stop: stopPlayToten, volume: volumeToten }] = useSound(Darkcity, { volume: 0.16, loop: false });
+    const [playMeridiem, {stop: stopPlayMeridiem, volume: volumeMeridiem }] = useSound(Desertcity, { volume: 0.4, loop: false });
+    const [playDesert, {stop: stopPlayDesert, volume: volumeDesert }] = useSound(Desert, { volume: 1.1, loop: false });
+    const [playBlizzard, {stop: stopPlayBlizzard, volume: volumeBlizzard }] = useSound(Blizzard, { volume: 0.45, loop: false });
+    const [playSteppe, {stop: stopPlaySteppe, volume: volumeSteppe }] = useSound(Steppe, { volume: 0.40, loop: false });
 
     function stopAll() {
         stopPlay();
@@ -40,6 +44,8 @@ export default function Navigator(props) {
         stopPlayToten();
         stopPlayMeridiem();
         stopPlayDesert();
+        stopPlayBlizzard();
+        stopPlaySteppe();
     }
 
     function handleAmabilia() {
@@ -103,6 +109,8 @@ export default function Navigator(props) {
     }
 
     function handleIskale() {
+        stopAll();
+        playBlizzard();
         setVillage(false);
         setFjell(false);
         setCalidum(false);
@@ -126,11 +134,13 @@ export default function Navigator(props) {
         setTotenstadt(true);
         setDhahabiun(false);
         setPlaceName('Totenstadt');
-        setParagraph1('Totenstadt is one of the largest cities in the middle of the continent, in the darkly forested region of Burkolat. Wanderers traversing from west to east tend to avoid it if they can. Folk tales say that the vast city is run by the undead, or warlocks - or both.');
+        setParagraph1('Totenstadt is one of the largest cities in the middle of the continent, in the darkly forested region of Burkolat. Wanderers tend to avoid it if they can. Folk tales say that the vast city is run by the undead, or warlocks - or both.');
         setParagraph2('A chilly wind takes you towards Totenstadt from the Arduus Pass.');
     }
 
     function handleDhahabiun() {
+        stopAll();
+        playSteppe();
         setVillage(false);
         setFjell(false);
         setCalidum(false);
@@ -147,7 +157,7 @@ export default function Navigator(props) {
             {props.navShown &&
             <div id="navigationBox" style={{position: 'fixed', left: '35.5%', top: '25%', zIndex: '2', width: '28%', padding: '20px', borderRadius: '10px', boxShadow: '1px 5px 5px rgba(0.5, 1.5, 0.7, 0.7)'}}>
                 <h1 style={{marginTop: '-2px'}}>{placeName}</h1>
-                <p style={{fontSize: '18px'}}>{paragraph1}</p>
+                <p style={{fontSize: '18px', marginTop: '-6px'}}>{paragraph1}</p>
                 <p style={{fontSize: '18px'}}>{paragraph2}</p>
                 <h2 style={{marginTop: '-10px'}}>Travel</h2>
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '10px', marginTop: '-10px'}}>
@@ -156,10 +166,12 @@ export default function Navigator(props) {
                     <button className="travelButtons" style={{padding: '8px', fontSize: '14px', width: '120px', height: '40px'}} onClick={handleCalidum}>Calidum Desert</button>
                     <button className="travelButtons" style={{padding: '8px', fontSize: '14px', width: '120px', height: '40px'}} onClick={handleMeridiem}>Meridiem</button>
                 </div>
-                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', marginTop: '10px', gap: '10px'}}>
+                <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: '-5px', gap: '10px'}}>
                     <button className="travelButtons" style={{padding: '8px', fontSize: '14px', width: '120px', height: '40px'}} onClick={handleIskale}>Iskale</button>
                     <button className="travelButtons" style={{padding: '8px', fontSize: '14px', width: '120px', height: '40px'}} onClick={handleTotenstadt}>Totenstadt</button>
                     <button className="travelButtons" style={{padding: '8px', fontSize: '14px', width: '120px', height: '40px'}} onClick={handleDhahabiun}>Dhahabiun</button>
+                    <p style={{fontSize: '22px', width: '40px'}} onClick={stopAll}>🔇</p>
+
                 </div>
             </div>}
         

@@ -14,7 +14,9 @@ export default function Credits() {
             <h4>Fjell: "RPG | D&D Ambience - Steppe / Savanna" by The Ambience Channel (https://www.youtube.com/watch?v=gXJM1L1cFpw)</h4>
             <h4>Calidum: "African Desert Sounds / Sounds of African Desert / African Desert Ambience Sounds / Royalty Free" by Played N Faved (https://www.youtube.com/watch?v=TLlWmO1EVTA) </h4>
             <h4>Meridiem: "RPG | D&D Ambience - Artisan Street" by The Ambience Channel (https://www.youtube.com/watch?v=Hoba6ktJ1NA)</h4>
+            <h4>Iskale: "Winter Storm Sound" by Relaxing & Meditation Music (https://www.youtube.com/watch?v=C02VwIjfklU)</h4>
             <h4>Totenstadt: "RPG | D&D Ambience - Cursed City" by the Ambience Channel (https://www.youtube.com/watch?v=nI-iFEFCySE&t=5s)</h4>
+            <h4>Dhahabiun: "Waterfall jungle sounds" by Dnz Muzik (https://www.youtube.com/watch?v=tnOj-DsZKsU)</h4>
         </div>
     );
 }
