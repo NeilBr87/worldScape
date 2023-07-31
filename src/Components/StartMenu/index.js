@@ -3,6 +3,7 @@ import {useState} from 'react';
 import WorldSelector from '../WorldSelector';
 import Credits from '../Credits';
 import Guide from '../Guide';
+import About from '../About';
 import './style.css';
 
 export default function StartMenu() {
@@ -22,6 +23,11 @@ export default function StartMenu() {
         setGuide(true);
     }
 
+    function handleAbout() {
+        setShowMenu(false);
+        setAbout(true);
+    }
+
     function handleCredits() {
         setShowMenu(false);
         setCredits(true);
@@ -36,7 +42,7 @@ export default function StartMenu() {
                     <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '30px', marginTop: '2%'}}>
                         <h1 style={{cursor: 'pointer'}} onClick={handleStart} >Start</h1>
                         <h1 style={{cursor: 'pointer'}} onClick={handleGuide} >Guide</h1>
-                        <h1 style={{cursor: 'pointer'}} >About</h1>
+                        <h1 style={{cursor: 'pointer'}} onClick={handleAbout}>About</h1>
                         <h1 style={{cursor: 'pointer'}} onClick={handleCredits}>Credits</h1>
                     </div>
             </div>
@@ -45,6 +51,7 @@ export default function StartMenu() {
             <div>
                 {start ? <WorldSelector /> : null}
                 {guide ? <Guide /> : null}
+                {about ? <About /> : null}
                 {credits ? <Credits /> : null}
             </div>
 
